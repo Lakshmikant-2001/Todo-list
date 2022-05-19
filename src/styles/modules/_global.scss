@@ -9,4 +9,11 @@
 body {
   min-height: 100vh;
   font-family: $primary-font;
+
+  main{
+    margin-top:70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
