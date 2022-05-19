@@ -10,9 +10,14 @@ body {
   min-height: 100vh;
   font-family: $primary-font;
 
+  li{
+    list-style: none;
+  }
+
   main{
     margin-top:70px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
