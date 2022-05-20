@@ -1,0 +1,74 @@
+$primary-red:rgb(239, 157, 157);
+$secondary-red:rgb(249, 107, 82);
+
+#todo-form {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  color: #666;
+  display: flex;
+
+  > div,
+  > select {
+    max-height: 50px;
+    margin: 0 .5rem;
+    display: flex;
+    border: 3px solid $primary-red;
+    border-radius: 0.5rem;
+
+    &:first-child {
+      width: 500px;
+    }
+
+    &:hover,
+    &:focus-within {
+      border: 3px solid $secondary-red;
+    }
+  }
+}
+
+#todo-input {
+  flex-grow: 1;
+  border: none;
+  border-radius: inherit;
+  font-size: inherit;
+  padding: 0.5rem;
+  color: inherit;
+
+  &::placeholder {
+    color: #aaa;
+  }
+}
+
+#add-todo {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: unset;
+  border: none;
+  border-radius: inherit;
+  color: $primary-red;
+  cursor: pointer;
+
+  svg {
+    font-size: 1.5rem;
+    border-radius: 50%;
+    transition: all 0.2s linear;
+    border: 1.5px solid transparent;
+  }
+
+  &:hover,
+  &:focus {
+    svg {
+      border: 1.5px solid $secondary-red;
+      color: $secondary-red;
+    }
+  }
+}
+
+#todo-filter {
+  width: 20%;
+  color: inherit;
+  font-size: inherit;
+  text-align: center;
+}

@@ -13,6 +13,10 @@ body {
   li{
     list-style: none;
   }
+  
+  *:focus{
+    outline: none;
+  }
 
   main{
     margin-top:70px;
