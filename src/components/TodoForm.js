@@ -1,6 +1,6 @@
 import { IoIosAddCircle } from 'react-icons/io';
 
-function TodoForm({ todoInput, handleAddClick, handleInpChange }) {
+function TodoForm({ todoInput, handleAddClick, handleInpChange, handleFilterChange }) {
   return (
     <form id="todo-form">
       <div>
@@ -8,7 +8,7 @@ function TodoForm({ todoInput, handleAddClick, handleInpChange }) {
           onChange={handleInpChange} value={todoInput} autoComplete="off" />
         <button id="add-todo" onClick={handleAddClick}><IoIosAddCircle /></button>
       </div>
-      <select id="todo-filter">
+      <select id="todo-filter" onChange={handleFilterChange}>
         <option value="all">all</option>
         <option value="completed">completed</option>
         <option value="pending">pending</option>
