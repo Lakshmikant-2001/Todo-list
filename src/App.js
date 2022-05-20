@@ -13,7 +13,7 @@ function App() {
   }
   const handleAddClick = (e) => {
     e.preventDefault();
-    if (todoInput == '')
+    if (todoInput === '')
       return;
     setTodoList([...todoList, { name: todoInput, isCompleted: false }]);
     setTodoInput('');

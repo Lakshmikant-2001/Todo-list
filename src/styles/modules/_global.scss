@@ -25,4 +25,11 @@ body {
     justify-content: center;
     align-items: center;
   }
+
+  .btn{
+    background-color: unset;
+    border:none;
+    color:inherit;
+    cursor: pointer;
+  }
 }
