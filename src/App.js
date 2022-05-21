@@ -6,8 +6,9 @@ import TodoForm from "./components/TodoForm";
 import TodosContainer from "./components/TodosContainer";
 
 function App() {
+  const initialState = JSON.parse(localStorage.getItem("todoList")) || [];
   const [todoInput, setTodoInput] = useState('');
-  const [todoList, setTodoList] = useState([]);
+  const [todoList, setTodoList] = useState(initialState);
   const [filterType, setFilterType] = useState('all');
   const [filteredTodoList, setFilteredTodoList] = useState([]);
   const handleInpChange = (e) => {
@@ -48,6 +49,9 @@ function App() {
     }
     setFilteredTodoList(getFilteredTodos)
   }, [todoList, filterType]);
+
+  useEffect(() => localStorage.setItem("todoList", JSON.stringify(todoList)),
+    [todoList]);
 
   return (
     <div className="App">

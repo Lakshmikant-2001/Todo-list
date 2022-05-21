@@ -26,14 +26,14 @@ function Todo({ todo, handleComplete, handleDelete }) {
         <li>{todo.name}</li>
       </div>
       <div>
-        <button className={disabledClass} onClick={() => handleComplete(todo.id)}>complete</button>
+        <button className={`btn ${disabledClass}`} onClick={() => handleComplete(todo.id)} tabIndex={!todo.isCompleted ? "1" : "-1"}>complete</button>
         <button className="btn" onClick={() => {
           addExitAnimation();
           setTimeout(() => {
             todoWrapperRef.current.classList.remove("exit-animation");
             handleDelete(todo.id);
           }, 300);
-        }}>delete</button>
+        }} tabIndex="1">delete</button>
       </div>
     </div >
   );
