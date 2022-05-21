@@ -1,13 +1,12 @@
+//React-icons
 import { IoCheckmarkDoneCircleSharp } from "react-icons/io5";
 import { MdPending } from 'react-icons/md'
 
 function TodosContainer({ todoList, handleComplete, handleDelete }) {
-  let key = 0;
   return (
     <div id="todos-container">
       {todoList.map(todo => {
-        key++;
-        return <Todo todo={todo} key={key} handleComplete={handleComplete} handleDelete={handleDelete} />
+        return <Todo todo={todo} key={todo.id} handleComplete={handleComplete} handleDelete={handleDelete} />
       })}
     </div>
   );
@@ -22,8 +21,9 @@ function Todo({ todo, handleComplete, handleDelete }) {
         <li>{todo.name}</li>
       </div>
       <div>
-        <button className={disabledClass} onClick={() => handleComplete(todo.name)} disabled={todo.isCompleted}>complete</button>
-        <button className="btn" onClick={() => handleDelete(todo.name)}>delete</button>
+        <button className={disabledClass} onClick={() => handleComplete(todo.id)}
+          disabled={todo.isCompleted}>complete</button>
+        <button className="btn" onClick={() => handleDelete(todo.id)}>delete</button>
       </div>
     </div>
   );

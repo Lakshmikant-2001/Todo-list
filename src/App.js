@@ -14,45 +14,49 @@ function App() {
     setTodoInput(e.target.value);
   }
   const handleAddClick = (e) => {
+    const id = new Date().getTime();
     e.preventDefault();
     if (todoInput === '')
       return;
-    setTodoList([...todoList, { name: todoInput, isCompleted: false }]);
+    setTodoList([...todoList, { name: todoInput, isCompleted: false, id }]);
     setTodoInput('');
   }
-  const handleComplete = (name) => {
+  const handleComplete = (id) => {
     setTodoList(todoList.map(list => {
-      if (list.name === name)
+      if (list.id === id)
         return { ...list, isCompleted: true };
       return list;
     }));
   }
-  const handleDelete = (name) => {
-    setTodoList(todoList.filter(list => list.name !== name))
+  const handleDelete = (id) => {
+    setTodoList(todoList.filter(list => list.id !== id));
   }
   const handleFilterChange = (e) => {
-    setFilterType(e.target.value)
+    setFilterType(e.target.value);
   }
-  const getFilteredTodos = () => {
-    switch(filterType){
-      case 'pending' : 
-        return todoList.filter(list => list.isCompleted === false);
-      case 'completed' :
-        return todoList.filter(list => list.isCompleted === true);
-      default:
-        return todoList;
+
+  useEffect(() => {
+    const getFilteredTodos = () => {
+      switch (filterType) {
+        case 'pending':
+          return todoList.filter(list => list.isCompleted === false);
+        case 'completed':
+          return todoList.filter(list => list.isCompleted === true);
+        default:
+          return todoList;
+      }
     }
-  }
-  useEffect(()=>{setFilteredTodoList(getFilteredTodos())},
-    [todoList,filterType]);
+    setFilteredTodoList(getFilteredTodos)
+  }, [todoList, filterType]);
 
   return (
     <div className="App">
       <Navbar />
       <main>
         <TodoForm todoInput={todoInput} handleAddClick={handleAddClick}
-         handleInpChange={handleInpChange} handleFilterChange={handleFilterChange} />
-        <TodosContainer todoList={filteredTodoList} handleComplete={handleComplete} handleDelete={handleDelete} />
+          handleInpChange={handleInpChange} handleFilterChange={handleFilterChange} />
+        <TodosContainer key={filterType} todoList={filteredTodoList}
+          handleComplete={handleComplete} handleDelete={handleDelete} />
       </main>
     </div>
   );
