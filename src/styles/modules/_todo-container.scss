@@ -1,6 +1,6 @@
 #todos-container {
   width: 50%;
-  margin-top: 4rem;
+  margin: 4rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,5 +54,54 @@
       border-color: rgb(242, 95, 69);
       box-shadow: 1px 1px 5px #55555550;
     }
+  }
+}
+
+.entry-animation,.exit-animation{
+  transform-origin: left;
+}
+
+.entry-animation{
+  animation:scale-up .3s 1;
+}
+
+.exit-animation{
+  animation:scale-down .3s 1;
+}
+
+.completed-animation{
+  animation:spin .5s 1;
+}
+
+@keyframes scale-up {
+  from{
+    transform: scale(0);
+  }
+  to{
+    transform: scale(1);
+  }
+}
+
+@keyframes scale-down {
+  from{
+    transform: scale(1);
+  }
+  to{
+    transform: scale(0);
+  }
+}
+
+@keyframes spin {
+  0%{
+    transform: rotate(0);
+  }
+  10%{
+    fill:tomato;
+  }
+  50%{
+    transform: scale(1.8);
+  }
+  100%{
+    transform: scale(1) rotate(1turn);
   }
 }
