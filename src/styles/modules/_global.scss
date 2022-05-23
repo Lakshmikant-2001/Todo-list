@@ -9,6 +9,7 @@
 body {
   min-height: 100vh;
   font-family: $primary-font;
+  font-weight: 500;
 
   li{
     list-style: none;
@@ -19,17 +20,27 @@ body {
   }
 
   main{
-    margin-top:70px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding-top:70px;
+    @include flex($direction:column);
   }
 
   .btn{
     background-color: unset;
     border:none;
     color:inherit;
+    font-weight: inherit;
     cursor: pointer;
+  }
+}
+
+::-webkit-scrollbar{
+  background-color: #fff;
+  width: 8px;
+}
+::-webkit-scrollbar-thumb{
+  background-color:rgb(243, 124, 103);
+
+  &:hover{
+    background-color: tomato;
   }
 }

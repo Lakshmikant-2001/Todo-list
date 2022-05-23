@@ -1,16 +1,12 @@
 #todos-container {
-  width: 50%;
-  margin: 4rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: max(50%,400px);
+  margin: 3rem 0;
+  @include flex(column);
+  flex-grow: 1;
 }
 
 .ind-todo-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex($justify:space-between);
   padding: 0.5rem 1rem;
   width: 100%;
   color: #555;

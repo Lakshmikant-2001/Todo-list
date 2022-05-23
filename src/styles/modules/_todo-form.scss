@@ -41,9 +41,7 @@ $secondary-red:rgb(249, 107, 82);
 
 #add-todo {
   width: 10%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex();
   background-color: unset;
   border: none;
   border-radius: inherit;
@@ -68,6 +66,7 @@ $secondary-red:rgb(249, 107, 82);
 
 #todo-filter {
   width: 20%;
+  background-color: #fff;
   color: inherit;
   font-size: inherit;
   text-align: center;
